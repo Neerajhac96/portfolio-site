@@ -1,0 +1,179 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgb(0, 0, 33);
+  color: white;
+  font-family: "Poppins", sans-serif;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 80px;
+  background-color: rgb(4, 4, 56);
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  list-style: none;
+  margin: 0 23px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+nav ul li ul li {
+  display: block;
+  margin: 0;
+}
+
+nav ul li a:hover {
+  color: rgb(130, 161, 240);
+  font-size: 1.01rem;
+}
+
+main hr {
+  border: 0;
+  background-color: rgb(132, 132, 228);
+  height: 1.2px;
+  margin: 40px 84px;
+}
+
+.left {
+  font-size: 3rem;
+}
+
+.firstsection {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 130px 0;
+}
+
+.firstsection > div {
+  width: 30%;
+}
+
+.leftsection {
+  font-size: 3rem;
+}
+
+.rightsection img {
+  width: 80%;
+  opacity: 1;
+  border-radius: 25px;
+  transition: opacity 1s ease-in-out;
+}
+
+#element {
+  font-size: 2rem;
+  font-weight: bold;
+  color: blueviolet;
+  animation: fadein 2s infinite;
+}
+
+.secondsection {
+  max-width: 80vw;
+  margin: auto;
+  height: 80vh;
+}
+
+.secondsection h1 {
+  font-size: 1.9rem;
+}
+
+.secondsection .box {
+  background-color: white;
+  width: 80vw;
+  height: 2px;
+  margin: 56px 0;
+  display: flex;
+}
+
+section > .vertical {
+  height: 93px;
+  width: 1px;
+  background-color: rgb(255, 255, 255);
+  margin: auto;
+}
+
+.img-top {
+  width: 23px;
+  position: relative;
+  top: -32px;
+  left: -9px;
+  margin-left: 8px;
+}
+#projects {
+  padding: 40px;
+  /* background-color: #f5f5f5; */
+  text-align: center;
+}
+.projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+.project-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 20px;
+  width: 300px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.project-card h3 {
+  color: #007bff;
+}
+.project-card a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #007bff;
+  text-decoration: none;
+}
+.project-card a:hover {
+  text-decoration: underline;
+}
+/* Contect section */
+#contact {
+  background-color: #c7c5df;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+#contact h2 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.contact-info {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #444;
+}
+
+.contact-info p {
+  margin: 10px 0;
+}
+
+.contact-info a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ID Card Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        form,
+        .id-card {
+            max-width: 400px;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #f7f7f7;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .id-card {
+            display: none;
+            text-align: center;
+        }
+
+        .id-box {
+            border: 2px solid #000;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: white;
+        }
+
+        .photo-box {
+            width: 100px;
+            height: 100px;
+            margin: 10px auto;
+            border: 1px solid #999;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        @media print {
+
+            form,
+            button {
+                display: none;
+            }
+
+            .id-card {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2 style="text-align:center;">ID Card Generator</h2>
+
+    <form id="idForm">
+        <label>Full Name:</label>
+        <input type="text" id="fullName" required>
+
+        <label>ID Number:</label>
+        <input type="text" id="idNumber" required>
+
+        <label>Department:</label>
+        <input type="text" id="department" required>
+
+        <label>Upload Photo URL:</label>
+        <input type="url" id="photoURL" placeholder="Paste photo URL">
+
+        <button type="submit">Generate ID Card</button>
+    </form>
+
+    <div class="id-card" id="idCard">
+        <div class="id-box">
+            <h3>Organization Name</h3>
+            <div class="photo-box" id="idPhoto"></div>
+            <p><strong>Name:</strong> <span id="cardName"></span></p>
+            <p><strong>ID:</strong> <span id="cardId"></span></p>
+            <p><strong>Dept:</strong> <span id="cardDept"></span></p>
+        </div>
+        <br>
+        <button onclick="window.print()">Print ID Card</button>
+    </div>
+
+    <script>
+        document.getElementById("idForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const name = document.getElementById("fullName").value;
+            const id = document.getElementById("idNumber").value;
+            const dept = document.getElementById("department").value;
+            const photo = document.getElementById("photoURL").value;
+
+            document.getElementById("cardName").textContent = name;
+            document.getElementById("cardId").textContent = id;
+            document.getElementById("cardDept").textContent = dept;
+
+            const photoBox = document.getElementById("idPhoto");
+            if (photo) {
+                photoBox.style.backgroundImage = `url('${photo}')`;
+            } else {
+                photoBox.style.backgroundImage = `url('https://via.placeholder.com/100')`;
+            }
+
+            document.getElementById("idCard").style.display = "block";
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        });
+    </script>
+
+</body>
+
+</html>
