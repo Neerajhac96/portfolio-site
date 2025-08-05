@@ -75,7 +75,8 @@ main hr {
 }
 
 .rightsection img {
-  width: 80%;
+  max-width: 100%;
+  height: auto;
   /* border: 3px solid #0ef;
   border-radius: 50%;
   background: #0ef;
@@ -192,3 +193,142 @@ section > .vertical {
   color: #081b29;
   box-shadow: 0 0 20px #0ef;
 }
+
+/* responsive */
+
+/* ========== SMALL DEVICES (phones < 600px) ========== */
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+
+  .left {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .firstsection {
+    flex-direction: column;
+    margin: 100px 10px;
+    text-align: center;
+  }
+
+  .firstsection > div {
+    width: 100%;
+  }
+
+  .leftsection {
+    font-size: 2rem;
+  }
+
+  #element {
+    font-size: 1.5rem;
+  }
+
+  .projects-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .project-card {
+    width: 90%;
+  }
+
+  .contact-info a {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+    margin: 8px;
+  }
+
+  body {
+    padding-top: 100px;
+  }
+}
+
+
+/* ========== MEDIUM DEVICES (Tablets) ========== */
+@media (min-width: 601px) and (max-width: 991px) {
+  nav {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+  nav ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav ul li {
+    margin: 10px;
+  }
+
+  .left {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  .firstsection {
+    flex-direction: column;
+    margin: 120px 20px;
+    text-align: center;
+  }
+
+  .firstsection > div {
+    width: 80%;
+  }
+
+  .leftsection {
+    font-size: 2.5rem;
+  }
+
+  .project-card {
+    width: 80%;
+  }
+
+  .contact-info a {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  body {
+    padding-top: 90px;
+  }
+}
+
+
+/* ========== LARGE DEVICES (Laptop/Desktop > 992px) ========== */
+@media (min-width: 992px) {
+  .firstsection {
+    flex-direction: row;
+    margin: 130px 0;
+  }
+
+  .firstsection > div {
+    width: 30%;
+  }
+
+  .project-card {
+    width: 300px;
+  }
+
+  body {
+    padding-top: 80px;
+  }
+}
+
