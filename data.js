@@ -5,6 +5,32 @@
 // ============================================================
 
 const projects = [
+   {
+  id: "chatdeva",
+  name: "ChatDeva AI",
+  shortDesc: "AI-powered chatbot that answers queries using custom data (RAG system).",
+
+  fullDesc:
+    "ChatDeva is an AI chatbot built using Retrieval-Augmented Generation (RAG). It allows users to ask questions and get accurate answers from custom data sources. The system uses embeddings and vector search to retrieve relevant information before generating responses. Designed with a clean UI and real-time interaction.",
+
+  features: [
+    "AI chatbot with real-time responses",
+    "RAG (Retrieval-Augmented Generation) system",
+    "Custom document-based Q&A",
+    "Fast search using embeddings",
+    "Clean and responsive UI"
+  ],
+
+  tech: ["Python", "Streamlit", "LangChain", "FAISS", "OpenAI API"],
+
+  github: "https://github.com/Neerajhac96/chatdeva",   // apna actual repo dalna
+  live: "https://chatdeva-production-04b8.up.railway.app/",  // agar deploy nahi kiya hai to "#" rakho
+
+  image: "assets/projects/chatdeva.png",
+  images: ["assets/projects/chatdeva.png","assets/projects/chatdeva1.png"],
+
+  color: "#10B981"
+},
   {
     id: "weather-app",
     name: "Weather App",
@@ -19,35 +45,15 @@ const projects = [
       "Error handling for invalid city names",
     ],
     tech: ["HTML5", "CSS3", "JavaScript", "OpenWeatherMap API"],
-    github: "https://github.com/nirajkumar",
-    live: "https://nirajkumar.github.io/weather-app",
+    github: "https://github.com/Neerajhac96/weather_app",
+    live: "https://neerajhac96.github.io/weather_app/",
     image: "assets/projects/weather.png",
     images: ["assets/projects/weather.png"],
     color: "#00D9C0",
   },
   {
-    id: "todo-app",
-    name: "Task Manager",
-    shortDesc: "A clean drag-and-drop task manager with localStorage persistence.",
-    fullDesc:
-      "A feature-rich task management application with drag-and-drop reordering, priority labels, and deadline tracking. All tasks are saved to localStorage so data persists across sessions. The UI is minimal and distraction-free, designed to keep users focused on what matters.",
-    features: [
-      "Add, edit & delete tasks",
-      "Drag-and-drop reordering",
-      "Priority labels (High / Medium / Low)",
-      "Deadline picker with overdue alerts",
-      "Persistent storage via localStorage",
-    ],
-    tech: ["HTML5", "CSS3", "JavaScript", "localStorage API"],
-    github: "https://github.com/nirajkumar",
-    live: "https://nirajkumar.github.io/todo-app",
-    image: "assets/projects/todo.png",
-    images: ["assets/projects/todo.png"],
-    color: "#FF6B6B",
-  },
-  {
-    id: "portfolio-website",
-    name: "Portfolio Website",
+    id: "MERN",
+    name: "MERN Stack Auth & Dashboard App",
     shortDesc: "This very portfolio — built from scratch with HTML, CSS & Vanilla JS.",
     fullDesc:
       "A fully handcrafted portfolio website built without any frameworks. Features include dark/light mode with localStorage preference, typing animation, dynamically rendered project cards from a data file, GitHub stats integration, and a contact form ready for EmailJS. Designed mobile-first with clean code that's easy to extend.",
@@ -66,26 +72,6 @@ const projects = [
     images: ["assets/projects/portfolio.png"],
     color: "#A78BFA",
   },
-  {
-    id: "quiz-app",
-    name: "Quiz App",
-    shortDesc: "Interactive quiz with timer, score tracking, and multiple categories.",
-    fullDesc:
-      "A dynamic quiz application that pulls questions from the Open Trivia Database API. Users choose a category and difficulty, then race against a countdown timer. Score is tracked throughout and a detailed results screen shows correct answers at the end.",
-    features: [
-      "Category & difficulty selection",
-      "Countdown timer per question",
-      "Live score tracking",
-      "Results screen with correct answers",
-      "Responsive and accessible UI",
-    ],
-    tech: ["HTML5", "CSS3", "JavaScript", "Open Trivia DB API"],
-    github: "https://github.com/nirajkumar",
-    live: "https://nirajkumar.github.io/quiz-app",
-    image: "assets/projects/quiz.png",
-    images: ["assets/projects/quiz.png"],
-    color: "#FBBF24",
-  },
 ];
 
 // ============================================================
@@ -94,11 +80,11 @@ const projects = [
 
 const certificates = [
   {
-    title: "Responsive Web Design",
-    issuer: "freeCodeCamp",
+    title: "Problem Solving (Basic)",
+    issuer: "HackerRank",
     date: "2023",
     image: "assets/certificates/cert1.png",
-    link: "https://freecodecamp.org",
+    link: "https://drive.google.com/file/d/1bs0_cueGCmki3O-XehwMsltBTAnrowkf/view?usp=sharing",
   },
   {
     title: "JavaScript Algorithms & Data Structures",
