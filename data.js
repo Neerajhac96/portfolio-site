@@ -54,22 +54,22 @@ const projects = [
   {
     id: "MERN",
     name: "MERN Stack Auth & Dashboard App",
-    shortDesc: "This very portfolio — built from scratch with HTML, CSS & Vanilla JS.",
+    shortDesc: "Full-stack web app with JWT authentication and a protected user dashboard.",
     fullDesc:
-      "A fully handcrafted portfolio website built without any frameworks. Features include dark/light mode with localStorage preference, typing animation, dynamically rendered project cards from a data file, GitHub stats integration, and a contact form ready for EmailJS. Designed mobile-first with clean code that's easy to extend.",
+      "SecureAuth Dashboard is a full-stack web application that provides secure user authentication and a protected dashboard. Users can sign up and log in with encrypted passwords using bcrypt. After authentication, a JWT token is generated and used to access protected routes. The dashboard fetches user data from the backend and displays it dynamically. The project demonstrates complete integration of frontend, backend, and database with proper authentication and security practices.",
     features: [
-      "Dark / Light mode with localStorage",
-      "Typing animation on hero section",
-      "Projects & certificates loaded from data.js",
-      "Fully responsive — mobile first",
-      "EmailJS-ready contact form",
-      "GitHub stats section",
+      "User signup and login system",
+      "JWT-based authentication and authorization",
+      "Protected dashboard with token verification",
+      "Password encryption using bcryptjs",
+      "Dynamic data fetching from backend API",
+      "Responsive UI using Bootstrap"
     ],
-    tech: ["HTML5", "CSS3", "Vanilla JavaScript", "EmailJS"],
-    github: "https://github.com/nirajkumar",
-    live: "https://nirajkumar.github.io",
-    image: "assets/projects/portfolio.png",
-    images: ["assets/projects/portfolio.png"],
+    tech: ["HTML", "CSS", "Bootstrap", "JavaScript", "Node.js", "Express.js", "MongoDB", "JWT", "bcryptjs"],
+    github: "https://github.com/Neerajhac96/myfullstack",
+    live: "https://startify23.netlify.app",
+    image: "assets/projects/mern.png",
+    images: ["assets/projects/mern.png","assets/projects/mern1.png"],
     color: "#A78BFA",
   },
 ];
@@ -86,20 +86,20 @@ const certificates = [
     image: "assets/certificates/cert1.png",
     link: "https://drive.google.com/file/d/1bs0_cueGCmki3O-XehwMsltBTAnrowkf/view?usp=sharing",
   },
-  {
-    title: "JavaScript Algorithms & Data Structures",
-    issuer: "freeCodeCamp",
-    date: "2023",
-    image: "assets/certificates/cert2.png",
-    link: "https://freecodecamp.org",
-  },
-  {
-    title: "Front-End Web Development",
-    issuer: "Coursera",
-    date: "2024",
-    image: "assets/certificates/cert3.png",
-    link: "https://coursera.org",
-  },
+  //{
+    //title: "JavaScript Algorithms & Data Structures",
+    //issuer: "freeCodeCamp",
+    //date: "2023",
+    //image: "assets/certificates/cert2.png",
+    //link: "https://freecodecamp.org",
+  //},
+  //{
+    //title: "Front-End Web Development",
+    //issuer: "Coursera",
+    //date: "2024",
+    //image: "assets/certificates/cert3.png",
+    //link: "https://coursera.org",
+  //},
 ];
 
 // ============================================================
@@ -115,16 +115,40 @@ const skills = {
     "Flexbox & Grid",
     "DOM Manipulation",
     "REST APIs",
-    "React (Learning)",
+    "React (Learning)"
   ],
+
+  Backend: [
+    "Node.js",
+    "Express.js",
+    "REST API Development",
+    "JWT Authentication",
+    "Middleware"
+  ],
+
+  AI_ML: [
+    "Python",
+    "LangChain",
+    "FAISS (Vector DB)",
+    "RAG (Retrieval-Augmented Generation)",
+    "OpenAI API",
+    "Prompt Engineering (Learning)"
+  ],
+
+  Database: [
+    "MongoDB",
+    "LocalStorage",
+    "Basic SQL"
+  ],
+
   Tools: [
     "Git & GitHub",
     "VS Code",
     "Figma",
     "Chrome DevTools",
-    "npm",
     "Postman",
+    "Streamlit",
     "Netlify",
-    "Vercel",
-  ],
+    "Vercel"
+  ]
 };
