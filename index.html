@@ -1,348 +1,285 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Niraj Kumar — Developer Portfolio" />
-    <title>Niraj Kumar | Developer</title>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Niraj Kumar — Frontend Developer & MCA Student. Building responsive, pixel-perfect web experiences."/>
+  <meta property="og:title" content="Niraj Kumar | Frontend Developer"/>
+  <meta property="og:description" content="Portfolio of Niraj Kumar — Frontend Developer building responsive web apps."/>
+  <meta property="og:type" content="website"/>
+  <title>Niraj Kumar</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
 
-    <!-- Google Fonts: Syne (display) + DM Mono (code tags) + Lato (body) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=Lato:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <!-- ===================== NAVBAR ===================== -->
-    <nav class="navbar" id="navbar">
-      <div class="nav-container">
-        <a href="#home" class="nav-logo">NK<span class="accent">.</span></a>
-
-        <ul class="nav-links" id="navLinks">
-          <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#projects" class="nav-link">Projects</a></li>
-          <li><a href="#skills" class="nav-link">Skills</a></li>
-          <li><a href="#certificates" class="nav-link">Certs</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
-        </ul>
-
-        <div class="nav-actions">
-          <!-- Dark / Light mode toggle -->
-          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-            <i class="fa-solid fa-moon" id="themeIcon"></i>
-          </button>
-          <!-- Hamburger for mobile -->
-          <button class="hamburger" id="hamburger" aria-label="Open menu">
-            <span></span><span></span><span></span>
-          </button>
-        </div>
-      </div>
-    </nav>
-
-    <!-- Mobile nav overlay -->
-    <div class="mobile-nav" id="mobileNav">
-      <button class="mobile-nav-close" id="mobileNavClose">
-        <i class="fa-solid fa-xmark"></i>
+<!-- ===================== NAVBAR ===================== -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="#home" class="nav-logo">NK<span class="accent">.</span></a>
+    <ul class="nav-links">
+      <li><a href="#about"        class="nav-link">About</a></li>
+      <li><a href="#projects"     class="nav-link">Projects</a></li>
+      <li><a href="#skills"       class="nav-link">Skills</a></li>
+      <li><a href="#timeline"     class="nav-link">Journey</a></li>
+      <li><a href="#certificates" class="nav-link">Certs</a></li>
+      <li><a href="#contact"      class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <i class="fa-solid fa-moon" id="themeIcon"></i>
       </button>
-      <ul>
-        <li><a href="#about" class="mobile-link">About</a></li>
-        <li><a href="#projects" class="mobile-link">Projects</a></li>
-        <li><a href="#skills" class="mobile-link">Skills</a></li>
-        <li><a href="#certificates" class="mobile-link">Certs</a></li>
-        <li><a href="#contact" class="mobile-link">Contact</a></li>
-      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-    <div class="mobile-overlay" id="mobileOverlay"></div>
+  </div>
+</nav>
 
-    <!-- ===================== HERO ===================== -->
-    <section class="hero" id="home">
-      <!-- Decorative grid lines -->
-      <div class="hero-grid" aria-hidden="true"></div>
+<!-- Mobile nav -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" id="mobileNavClose"><i class="fa-solid fa-xmark"></i></button>
+  <ul>
+    <li><a href="#about"        class="mobile-link">About</a></li>
+    <li><a href="#projects"     class="mobile-link">Projects</a></li>
+    <li><a href="#skills"       class="mobile-link">Skills</a></li>
+    <li><a href="#timeline"     class="mobile-link">Journey</a></li>
+    <li><a href="#certificates" class="mobile-link">Certs</a></li>
+    <li><a href="#contact"      class="mobile-link">Contact</a></li>
+  </ul>
+</div>
+<div class="mobile-overlay" id="mobileOverlay"></div>
 
-      <div class="hero-content">
-        <p class="hero-greeting">Hello, 👋 I'm</p>
-        <h1 class="hero-name">Niraj<br /><span class="accent">Kumar</span></h1>
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <canvas id="particles-canvas" style="width:100%;height:100%"></canvas>
+  </div>
+  <div class="hero-grid-overlay" aria-hidden="true"></div>
 
-        <!-- Typing animation container -->
-        <div class="hero-role">
-          <span class="role-static">I'm a&nbsp;</span>
-          <span class="role-typed" id="typedText"></span>
-          <span class="cursor" aria-hidden="true">|</span>
+  <div class="hero-content">
+    <div class="avail-badge" id="availBadge">
+      <span class="avail-dot"></span>
+      Available for opportunities
+    </div>
+    <p class="hero-greeting">Hello,👋 I'm</p>
+    <h1 class="hero-name" id="heroName">Niraj<br><span class="accent">Kumar</span></h1>
+    <div class="hero-role">
+      <span class="role-static">I'm a&nbsp;</span>
+      <span class="role-typed accent" id="typedText"></span>
+      <span class="type-cursor" aria-hidden="true">|</span>
+    </div>
+    <p class="hero-tagline" id="heroTagline">I craft responsive, pixel-perfect web experiences that users love.</p>
+    <div class="hero-buttons">
+      <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-eye"></i> View Projects</a>
+      <a href="assets/resume.pdf" class="btn btn-outline" download><i class="fa-solid fa-download"></i> Resume</a>
+    </div>
+    <div class="hero-socials">
+      <a id="heroGithubLink"   href="https://github.com/nirajkumar"          target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a id="heroLinkedInLink" href="https://linkedin.com/in/nirajkumar"      target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+      <a id="heroEmailLink"    href="mailto:niraj@email.com"                  aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+  </div>
+
+  <div class="hero-visual" aria-hidden="true">
+    <div class="hero-blob">
+      <div class="blob-inner">
+        <div class="blob-code">&lt;dev /&gt;</div>
+      </div>
+    </div>
+  </div>
+  <a href="#about" class="scroll-down" aria-label="Scroll down"><i class="fa-solid fa-chevron-down"></i></a>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section class="about section" id="about">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">01 / About</span>
+      <h2 class="section-title">Who I Am</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-image-wrapper reveal">
+        <div class="about-img-frame">
+          <img src="assets/dev.png" alt="Niraj Kumar" class="about-img"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="avatar-fallback">NK</div>
         </div>
+        <div class="img-accent" aria-hidden="true"></div>
+      </div>
+      <div class="about-text reveal">
+        <div id="aboutBio">
+          <p>I'm <strong id="aboutNameBold">Niraj Kumar</strong>, a passionate MCA student and aspiring Frontend Developer with a strong foundation in HTML, CSS, and JavaScript.</p>
+          <p>I love transforming design concepts into clean, interactive user interfaces. My focus is writing maintainable code that works beautifully across all devices and browsers.</p>
+          <p>When I'm not coding, I'm exploring new web technologies, contributing to open-source projects, or sharpening my problem-solving skills.</p>
+          <p>I'm actively seeking frontend internship and entry-level opportunities where I can contribute, learn, and grow as a developer.</p>
+        </div>
+        <div class="about-stats" id="aboutStats">
+          <div class="stat"><span class="stat-num">10+</span><span class="stat-label">Projects</span></div>
+          <div class="stat"><span class="stat-num">5+</span><span class="stat-label">Certificates</span></div>
+          <div class="stat"><span class="stat-num">2+</span><span class="stat-label">Years Learning</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <p class="hero-tagline">
-          I build fast, responsive, and user-friendly web applications using modern web technologies.
+<!-- ===================== PROJECTS ===================== -->
+<section class="projects section" id="projects">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">02 / Projects</span>
+      <h2 class="section-title">What I've Built</h2>
+    </div>
+    <div class="projects-filter stagger reveal" id="projectsFilter"></div>
+    <div class="projects-grid" id="projectsGrid"></div>
+  </div>
+</section>
+
+<!-- ===================== SKILLS ===================== -->
+<section class="skills section" id="skills">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">03 / Skills</span>
+      <h2 class="section-title">My Toolkit</h2>
+    </div>
+    <div class="skills-wrapper" id="skillsWrapper"></div>
+  </div>
+</section>
+
+<!-- ===================== TIMELINE ===================== -->
+<section class="section" id="timeline" style="background:var(--bg-alt)">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">04 / Journey</span>
+      <h2 class="section-title">My Journey</h2>
+    </div>
+    <div class="timeline-track" id="timelineTrack"></div>
+  </div>
+</section>
+
+<!-- ===================== CERTIFICATES ===================== -->
+<section class="certificates section" id="certificates">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">05 / Certificates</span>
+      <h2 class="section-title">Credentials</h2>
+    </div>
+    <div class="certs-grid" id="certsGrid"></div>
+  </div>
+</section>
+
+<!-- ===================== GITHUB STATS ===================== -->
+<section class="github-stats section" id="github" style="background:var(--bg-alt)">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">06 / GitHub</span>
+      <h2 class="section-title">GitHub Activity</h2>
+    </div>
+    <div class="stats-grid reveal">
+      <img class="github-stat-img github-card"
+        src="https://github-readme-stats.vercel.app/api?username=Neerajhac96&show_icons=true&theme=tokyonight&hide_border=true&bg_color=00000000&title_color=00D9AF&icon_color=00D9AF&text_color=ffffff"
+        alt="GitHub Stats"/>
+      <img class="github-stat-img github-card"
+        src="https://github-readme-streak-stats.herokuapp.com/?user=Neerajhac96&theme=tokyonight&hide_border=true&background=00000000&ring=00D9AF&fire=00D9AF&currStreakLabel=00D9AF"
+        alt="Streak Stats"/>
+      <img class="github-stat-img github-card"
+        src="https://github-readme-stats.vercel.app/api/top-langs/?username=Neerajhac96&layout=compact&theme=tokyonight&hide_border=true&bg_color=00000000&title_color=00D9AF&text_color=ffffff"
+        alt="Top Languages"/>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">07 / Contact</span>
+      <h2 class="section-title">Get In Touch</h2>
+    </div>
+    <div class="contact-grid">
+      <!-- Left info -->
+      <div class="reveal">
+        <p class="contact-intro">
+          I'm currently open to <strong>internships</strong> and <strong>entry-level frontend roles</strong>.
+          If you have an opportunity or just want to say hi — my inbox is always open!
         </p>
-
-        <div class="hero-buttons">
-          <a href="#projects" class="btn btn-primary">
-            <i class="fa-solid fa-eye"></i> View Projects
+        <div class="contact-links">
+          <a id="contactEmailLink" href="mailto:niraj@email.com" class="contact-link">
+            <i class="fa-solid fa-envelope"></i><span id="contactEmailText">niraj@email.com</span>
           </a>
-          <a href="assets/resume.pdf" class="btn btn-outline" download>
-            <i class="fa-solid fa-download"></i> Download Resume
+          <a id="contactGithubLink" href="https://github.com/nirajkumar" target="_blank" class="contact-link">
+            <i class="fa-brands fa-github"></i><span id="contactGithubText">github.com/nirajkumar</span>
           </a>
-        </div>
-
-        <!-- Social quick-links -->
-        <div class="hero-socials">
-          <a href="https://github.com/Neerajhac96" target="_blank" aria-label="GitHub">
-            <i class="fa-brands fa-github"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/niraj649/" target="_blank" aria-label="LinkedIn">
-            <i class="fa-brands fa-linkedin"></i>
-          </a>
-          <a href="mailto:niraj.kumar.07@gmail.com" aria-label="Email">
-            <i class="fa-solid fa-envelope"></i>
+          <a id="contactLinkedInLink" href="https://linkedin.com/in/nirajkumar" target="_blank" class="contact-link">
+            <i class="fa-brands fa-linkedin"></i><span id="contactLinkedInText">linkedin.com/in/nirajkumar</span>
           </a>
         </div>
       </div>
 
-      <!-- Decorative right blob -->
-      <div class="hero-visual" aria-hidden="true">
-        <div class="hero-blob">
-          <div class="blob-inner">
-            <span class="blob-code">&lt;dev /&gt;</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Scroll indicator -->
-      <a href="#about" class="scroll-down" aria-label="Scroll down">
-        <i class="fa-solid fa-chevron-down"></i>
-      </a>
-    </section>
-
-    <!-- ===================== ABOUT ===================== -->
-    <section class="about section" id="about">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">01 / About</span>
-          <h2 class="section-title">Who I Am</h2>
-        </div>
-
-        <div class="about-grid">
-          <div class="about-image-wrapper">
-            <div class="about-img-frame">
-              <!-- Replace src with your real photo -->
-              <img
-                src="assets/profile1.png"
-                alt="Niraj Kumar"
-                class="about-img"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-              />
-              <!-- Fallback avatar if photo not found -->
-              <div class="avatar-fallback">
-                <span>NK</span>
-              </div>
-            </div>
-            <!-- Decorative accent square -->
-            <div class="img-accent" aria-hidden="true"></div>
-          </div>
-
-          <div class="about-text">
-            <p>
-              I'm <strong>Niraj Kumar</strong>, a passionate MCA student and aspiring
-              Developer with a strong foundation in HTML, CSS, and JavaScript.
-            </p>
-            <p>
-              I love transforming design concepts into clean, interactive user interfaces.
-              My focus is on writing maintainable code that works beautifully across all
-              devices and browsers.
-            </p>
-            <p>
-              When I'm not coding, I'm exploring new web technologies, contributing to
-              open-source projects, or sharpening my problem-solving skills through
-              competitive programming.
-            </p>
-            <p>
-              I'm actively seeking internship and entry-level opportunities
-              where I can contribute, learn, and grow as a developer.
-            </p>
-
-            <!-- Quick stats -->
-            <div class="about-stats">
-              <div class="stat">
-                <span class="stat-num">5+</span>
-                <span class="stat-label">Projects</span>
-              </div>
-              <div class="stat">
-                <span class="stat-num">4+</span>
-                <span class="stat-label">Certificates</span>
-              </div>
-              <div class="stat">
-                <span class="stat-num">2+</span>
-                <span class="stat-label">Years Learning</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== PROJECTS ===================== -->
-    <section class="projects section" id="projects">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">02 / Projects</span>
-          <h2 class="section-title">What I've Built</h2>
-        </div>
-
-        <!-- Toolkit -->
-        <div class="projects-grid" id="projectsGrid"></div>
-      </div>
-    </section>
-
-    <!-- ===================== SKILLS ===================== -->
-    <section class="skills section" id="skills">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">03 / Skills</span>
-          <h2 class="section-title">My Toolkit</h2>
-        </div>
-
-        <!-- Skill categories -->
-        <div class="skills-wrapper" id="skillsWrapper"></div>
-      </div>
-    </section>
-
-    <!-- ===================== CERTIFICATES ===================== -->
-    <section class="certificates section" id="certificates">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">04 / Certificates</span>
-          <h2 class="section-title">Credentials</h2>
-        </div>
-
-        <!-- Cards injected by script.js -->
-        <div class="certs-grid" id="certsGrid"></div>
-      </div>
-    </section>
-
-    <!-- ===================== GITHUB STATS ===================== -->
-    <section class="github-stats section" id="github">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">05 / GitHub</span>
-          <h2 class="section-title">GitHub Activity</h2>
-        </div>
-
-        <div class="stats-grid">
-          <img
-            src="https://github-readme-stats.vercel.app/api?username=Neerajhac96&show_icons=true&theme=tokyonight&hide_border=true&bg_color=00000000&title_color=00D9C0&icon_color=00D9C0&text_color=ffffff"
-            alt="GitHub Stats"
-            class="github-card"
-          />
-          <img
-            src="https://github-readme-streak-stats.herokuapp.com/?user=Neerajhac96&theme=tokyonight&hide_border=true&background=00000000&ring=00D9C0&fire=00D9C0&currStreakLabel=00D9C0"
-            alt="GitHub Streak"
-            class="github-card"
-          />
-          <img
-            src="https://github-readme-stats.vercel.app/api/top-langs/?username=Neerajhac96&layout=compact&theme=tokyonight&hide_border=true&bg_color=00000000&title_color=00D9C0&text_color=ffffff"
-            alt="Top Languages"
-            class="github-card"
-          />
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== CONTACT ===================== -->
-    <section class="contact section" id="contact">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">06 / Contact</span>
-          <h2 class="section-title">Get In Touch</h2>
-        </div>
-
-        <div class="contact-grid">
-          <!-- Left: info -->
-          <div class="contact-info">
-            <p class="contact-intro">
-              I'm currently open to <strong>internships</strong> and
-              <strong>entry-level frontend roles</strong>. If you have an opportunity
-              or just want to say hi — my inbox is always open!
-            </p>
-
-            <div class="contact-links">
-              <a href="mailto:niraj.kumar.07@gmail.com" class="contact-link">
-                <i class="fa-solid fa-envelope"></i>
-                <span>niraj.kumar.07@gmail.com</span>
-              </a>
-              <a href="https://github.com/Neerajhac96" target="_blank" class="contact-link">
-                <i class="fa-brands fa-github"></i>
-                <span>github.com/Neerajhac96</span>
-              </a>
-              <a href="https://www.linkedin.com/in/niraj649/" target="_blank" class="contact-link">
-                <i class="fa-brands fa-linkedin"></i>
-                <span>linkedin.com/in/niraj649</span>
-              </a>
-            </div>
-          </div>
-
-          <!-- Right: form (EmailJS-ready) -->
-          <div class="contact-form-wrapper">
-            <div id="formSuccess" class="form-success hidden">
-              <i class="fa-solid fa-circle-check"></i>
-              <p>Message sent! I'll get back to you soon.</p>
-            </div>
-            <div class="contact-form" id="contactFormWrap">
+      <!-- Right form -->
+      <div class="reveal">
+        <div class="contact-form-card">
+          <div id="contactForm">
+            <div class="form-row">
               <div class="form-group">
-                <label for="userName">Your Name</label>
-                <input type="text" id="userName" placeholder="Name" required />
+                <label for="contactName">Your Name *</label>
+                <input type="text" id="contactName" placeholder="Rahul Sharma" maxlength="60" autocomplete="name"/>
+                <span class="field-error" id="nameError">Name must be 2–60 characters</span>
               </div>
               <div class="form-group">
-                <label for="userEmail">Your Email</label>
-                <input type="email" id="userEmail" placeholder="Email" required />
+                <label for="contactEmail">Your Email *</label>
+                <input type="email" id="contactEmail" placeholder="rahul@email.com" autocomplete="email"/>
+                <span class="field-error" id="emailError">Please enter a valid email</span>
               </div>
-              <div class="form-group">
-                <label for="userMessage">Message</label>
-                <textarea id="userMessage" rows="5" placeholder="Hi Niraj, I'd like to..." required></textarea>
-              </div>
-              <button class="btn btn-primary" id="sendBtn" type="button">
-                <i class="fa-solid fa-paper-plane"></i> Send Message
-              </button>
             </div>
+            <div class="form-group">
+              <label for="contactSubject">Subject *</label>
+              <input type="text" id="contactSubject" placeholder="Internship Opportunity" maxlength="100"/>
+              <span class="field-error" id="subjectError">Subject must be 3–100 characters</span>
+            </div>
+            <div class="form-group">
+              <label for="contactMessage">Message * <span class="char-counter" id="msgCounter">0/500</span></label>
+              <textarea id="contactMessage" rows="5" placeholder="Hi Niraj, I'd like to..." maxlength="500"></textarea>
+              <span class="field-error" id="messageError">Message must be 10–500 characters</span>
+            </div>
+            <!-- Honeypot — hidden from humans, catches bots -->
+            <div class="hp-field" aria-hidden="true">
+              <label>Leave empty</label>
+              <input type="text" id="hp_website" name="website" tabindex="-1" autocomplete="off"/>
+            </div>
+            <button class="btn btn-primary" id="contactSendBtn" style="width:100%">
+              <i class="fa-solid fa-paper-plane"></i> Send Message
+            </button>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <!-- ===================== FOOTER ===================== -->
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <span class="footer-logo">NK<span class="accent">.</span></span>
-          <p class="footer-text">
-            Designed &amp; Built by <strong>Niraj Kumar</strong>
-          </p>
-          <div class="footer-socials">
-            <a href="https://github.com/Neerajhac96" target="_blank" aria-label="GitHub">
-              <i class="fa-brands fa-github"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/niraj649/" target="_blank" aria-label="LinkedIn">
-              <i class="fa-brands fa-linkedin"></i>
-            </a>
-            <a href="mailto:niraj.kumar.07@gmail.com" aria-label="Email">
-              <i class="fa-solid fa-envelope"></i>
-            </a>
-          </div>
-        </div>
-        <p class="footer-copy">© 2024 Niraj Kumar. All rights reserved.</p>
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-logo">NK<span class="accent">.</span></span>
+      <p class="footer-text">Designed &amp; Built by <strong>Niraj Kumar</strong></p>
+      <div class="footer-socials">
+        <a id="footerGithubLink"   href="https://github.com/nirajkumar"     target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a id="footerLinkedInLink" href="https://linkedin.com/in/nirajkumar" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        <a id="footerEmailLink"    href="mailto:niraj@email.com"             aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
       </div>
-    </footer>
+    </div>
+    <p class="footer-copy">© 2025 Niraj Kumar · <a href="admin/index.html" style="color:var(--accent);opacity:0.6;font-size:0.9em">Admin</a></p>
+  </div>
+</footer>
 
-    <!-- Load data first, then scripts -->
-    <script src="data.js"></script>
-    <script src="script.js"></script>
-  </body>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/script.js"></script>
+</body>
 </html>

@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard | NK Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <link rel="stylesheet" href="../css/admin.css"/>
+  <style>
+    /* Login screen */
+    #loginOverlay{position:fixed;inset:0;background:var(--bg);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px}
+    .login-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:44px 40px;width:100%;max-width:420px;box-shadow:var(--shadow-lg)}
+    .login-logo{font-family:var(--font-display);font-weight:800;font-size:1.8rem;margin-bottom:8px}
+    .login-sub{font-size:0.88rem;color:var(--text-muted);margin-bottom:28px;font-family:var(--font-mono)}
+    .login-error{color:var(--accent-2);font-size:0.8rem;font-family:var(--font-mono);margin-bottom:10px;padding:10px 14px;background:rgba(255,92,92,0.1);border-radius:7px;border:1px solid rgba(255,92,92,0.2)}
+    .login-back{display:block;text-align:center;margin-top:20px;font-family:var(--font-mono);font-size:0.78rem;color:var(--text-muted);transition:color var(--t)}
+    .login-back:hover{color:var(--accent)}
+    .login-card .form-group{margin-bottom:20px}
+    .login-card label{display:block;font-family:var(--font-mono);font-size:0.72rem;color:var(--text-muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px}
+    .login-card input{width:100%;background:var(--bg-alt);border:1.5px solid var(--border);border-radius:9px;padding:12px 40px 12px 16px;color:var(--text);font-family:var(--font-body);font-size:0.95rem;outline:none;transition:border-color var(--t)}
+    .login-card input:focus{border-color:var(--accent)}
+    .login-card input.error{border-color:var(--accent-2);animation:shake 0.3s ease}
+    @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+  </style>
+</head>
+<body class="admin-body">
+
+<!-- ===================== SIDEBAR ===================== -->
+<aside class="admin-sidebar" id="adminSidebar">
+  <div class="sidebar-header">
+    <span class="sidebar-logo">NK<span class="accent">.</span> Admin</span>
+    <button class="sidebar-toggle" id="sidebarCloseBtn" title="Collapse">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+  </div>
+
+  <nav class="sidebar-nav">
+    <span class="sidebar-section-label">Overview</span>
+    <button class="sidebar-link active" data-panel="dashboard">
+      <i class="fa-solid fa-gauge-high"></i> Dashboard
+    </button>
+
+    <span class="sidebar-section-label">Content</span>
+    <button class="sidebar-link" data-panel="messages">
+      <i class="fa-solid fa-inbox"></i> Messages
+      <span class="sidebar-badge red msg-badge" style="display:none">0</span>
+    </button>
+    <button class="sidebar-link" data-panel="projects">
+      <i class="fa-solid fa-code"></i> Projects
+    </button>
+    <button class="sidebar-link" data-panel="certificates">
+      <i class="fa-solid fa-certificate"></i> Certificates
+    </button>
+    <button class="sidebar-link" data-panel="skills">
+      <i class="fa-solid fa-layer-group"></i> Skills
+    </button>
+    <button class="sidebar-link" data-panel="timeline">
+      <i class="fa-solid fa-timeline"></i> Timeline
+    </button>
+
+    <div class="sidebar-divider"></div>
+
+    <span class="sidebar-section-label">Account</span>
+    <button class="sidebar-link" data-panel="profile">
+      <i class="fa-solid fa-user"></i> Profile
+    </button>
+    <button class="sidebar-link" data-panel="settings">
+      <i class="fa-solid fa-gear"></i> Settings
+    </button>
+  </nav>
+
+  <div class="sidebar-footer">
+    <div class="admin-user">
+      <div class="admin-avatar">NK</div>
+      <div class="admin-user-info">
+        <div class="admin-user-name">Niraj Kumar</div>
+        <div class="admin-user-role">Administrator</div>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<!-- ===================== MAIN ===================== -->
+<main class="admin-main" id="adminMain">
+
+  <!-- Topbar -->
+  <header class="admin-topbar">
+    <div class="topbar-left">
+      <button class="sidebar-open-btn" id="sidebarOpenBtn" aria-label="Open sidebar">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <div>
+        <div class="topbar-title" id="topbarTitle">Dashboard</div>
+        <div class="topbar-breadcrumb">NK Portfolio Admin</div>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <a href="../index.html" class="btn btn-outline btn-sm" target="_blank">
+        <i class="fa-solid fa-arrow-up-right-from-square"></i> View Site
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <i class="fa-solid fa-moon" id="themeIcon"></i>
+      </button>
+      <button class="btn btn-sm btn-danger" id="logoutBtn">
+        <i class="fa-solid fa-right-from-bracket"></i>
+      </button>
+    </div>
+  </header>
+
+  <div class="admin-content">
+
+    <!-- ===== DASHBOARD PANEL ===== -->
+    <div class="admin-panel active" id="panel-dashboard">
+      <div class="stats-cards">
+        <div class="stat-card">
+          <div class="stat-icon teal"><i class="fa-solid fa-code"></i></div>
+          <div><div class="stat-card-label">Projects</div><div class="stat-card-value" id="statProjects">—</div><div class="stat-card-sub">In portfolio</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon purple"><i class="fa-solid fa-certificate"></i></div>
+          <div><div class="stat-card-label">Certificates</div><div class="stat-card-value" id="statCerts">—</div><div class="stat-card-sub">Earned</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon orange"><i class="fa-solid fa-inbox"></i></div>
+          <div><div class="stat-card-label">Messages</div><div class="stat-card-value" id="statMessages">—</div><div class="stat-card-sub">Total received</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon green"><i class="fa-solid fa-bell"></i></div>
+          <div><div class="stat-card-label">Unread</div><div class="stat-card-value" id="statUnread">—</div><div class="stat-card-sub">New messages</div></div>
+        </div>
+      </div>
+
+      <div class="dashboard-grid">
+        <div class="dash-card">
+          <h3><i class="fa-solid fa-inbox" style="color:var(--accent)"></i>&nbsp; Recent Messages</h3>
+          <div id="recentMessages"></div>
+        </div>
+        <div class="dash-card">
+          <h3><i class="fa-solid fa-bolt" style="color:var(--accent)"></i>&nbsp; Quick Actions</h3>
+          <div class="quick-actions">
+            <button class="quick-action-btn" onclick="switchPanel('projects');openAddProject()">
+              <i class="fa-solid fa-plus"></i> Add Project
+            </button>
+            <button class="quick-action-btn" onclick="switchPanel('certificates');openAddCert()">
+              <i class="fa-solid fa-plus"></i> Add Certificate
+            </button>
+            <button class="quick-action-btn" onclick="switchPanel('timeline');openAddTimeline()">
+              <i class="fa-solid fa-plus"></i> Add Timeline
+            </button>
+            <button class="quick-action-btn" onclick="switchPanel('messages')">
+              <i class="fa-solid fa-inbox"></i> View Inbox
+            </button>
+            <button class="quick-action-btn" onclick="switchPanel('profile')">
+              <i class="fa-solid fa-user-pen"></i> Edit Profile
+            </button>
+            <button class="quick-action-btn" onclick="exportData()">
+              <i class="fa-solid fa-download"></i> Export Data
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== MESSAGES PANEL ===== -->
+    <div class="admin-panel" id="panel-messages">
+      <div class="panel-toolbar">
+        <h2 style="font-size:1.1rem;font-weight:700">Inbox</h2>
+        <div style="display:flex;gap:10px;align-items:center">
+          <div class="panel-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Search messages..." id="msgSearchInput" oninput="filterMessages(this.value)">
+          </div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start">
+        <div>
+          <div id="msgsEmpty" class="empty-state hidden">
+            <i class="fa-solid fa-inbox"></i>
+            <h3>No messages yet</h3>
+            <p>Messages from your contact form will appear here.</p>
+          </div>
+          <div id="msgList"></div>
+        </div>
+        <div id="msgDetail"></div>
+      </div>
+    </div>
+
+    <!-- ===== PROJECTS PANEL ===== -->
+    <div class="admin-panel" id="panel-projects">
+      <div class="panel-toolbar">
+        <h2 style="font-size:1.1rem;font-weight:700">Projects</h2>
+        <button class="btn btn-primary btn-sm" onclick="openAddProject()">
+          <i class="fa-solid fa-plus"></i> Add Project
+        </button>
+      </div>
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Name</th><th>Description</th><th>Tech</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody id="projectsTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ===== CERTIFICATES PANEL ===== -->
+    <div class="admin-panel" id="panel-certificates">
+      <div class="panel-toolbar">
+        <h2 style="font-size:1.1rem;font-weight:700">Certificates</h2>
+        <button class="btn btn-primary btn-sm" onclick="openAddCert()">
+          <i class="fa-solid fa-plus"></i> Add Certificate
+        </button>
+      </div>
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Title</th><th>Issuer</th><th>Date</th><th>Actions</th></tr></thead>
+          <tbody id="certsTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ===== SKILLS PANEL ===== -->
+    <div class="admin-panel" id="panel-skills">
+      <div class="panel-toolbar">
+        <h2 style="font-size:1.1rem;font-weight:700">Skills</h2>
+        <button class="btn btn-primary btn-sm" onclick="addSkillCategory()">
+          <i class="fa-solid fa-plus"></i> Add Category
+        </button>
+      </div>
+      <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:20px;font-family:var(--font-mono)">
+        Type a skill name and press <kbd style="background:var(--bg-alt);padding:2px 6px;border-radius:4px;border:1px solid var(--border)">Enter</kbd> to add it.
+      </p>
+      <div id="skillsEditor"></div>
+    </div>
+
+    <!-- ===== TIMELINE PANEL ===== -->
+    <div class="admin-panel" id="panel-timeline">
+      <div class="panel-toolbar">
+        <h2 style="font-size:1.1rem;font-weight:700">Timeline / Journey</h2>
+        <button class="btn btn-primary btn-sm" onclick="openAddTimeline()">
+          <i class="fa-solid fa-plus"></i> Add Item
+        </button>
+      </div>
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Year</th><th>Title</th><th>Organization</th><th>Type</th><th>Actions</th></tr></thead>
+          <tbody id="timelineTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ===== PROFILE PANEL ===== -->
+    <div class="admin-panel" id="panel-profile">
+      <div class="panel-toolbar">
+        <h2 style="font-size:1.1rem;font-weight:700">Profile</h2>
+        <button class="btn btn-primary btn-sm" onclick="saveProfile()">
+          <i class="fa-solid fa-floppy-disk"></i> Save Changes
+        </button>
+      </div>
+      <div class="profile-grid">
+        <div class="profile-card admin-form">
+          <h3>Basic Info</h3>
+          <div class="form-group"><label>Full Name</label><input type="text" id="prName" placeholder="Niraj Kumar"/></div>
+          <div class="form-group"><label>Job Title</label><input type="text" id="prTitle" placeholder="Frontend Developer"/></div>
+          <div class="form-group"><label>Subtitle</label><input type="text" id="prSubtitle"/></div>
+          <div class="form-group"><label>Tagline (Hero)</label><input type="text" id="prTagline"/></div>
+          <div class="form-group"><label>Location</label><input type="text" id="prLocation" placeholder="India"/></div>
+          <div class="toggle-row">
+            <div><div class="toggle-label">Available for Work</div><div class="toggle-desc">Shows green badge on hero</div></div>
+            <label class="toggle-switch"><input type="checkbox" id="prAvailable"><span class="toggle-slider"></span></label>
+          </div>
+        </div>
+        <div class="profile-card admin-form">
+          <h3>Contact Links</h3>
+          <div class="form-group"><label>Email</label><input type="email" id="prEmail"/></div>
+          <div class="form-group"><label>GitHub URL</label><input type="url" id="prGithub" placeholder="https://github.com/username"/></div>
+          <div class="form-group"><label>LinkedIn URL</label><input type="url" id="prLinkedin"/></div>
+        </div>
+        <div class="profile-card admin-form" style="grid-column:1/-1">
+          <h3>Bio</h3>
+          <div class="form-group">
+            <label>Bio paragraphs (separate with blank line)</label>
+            <textarea id="prBio" rows="7"></textarea>
+            <p class="form-hint">Each paragraph separated by a blank line becomes a separate &lt;p&gt; tag.</p>
+          </div>
+        </div>
+        <div class="profile-card admin-form">
+          <h3>Stats (3 counters)</h3>
+          <div class="form-row">
+            <div class="form-group"><label>Stat 1 Value</label><input type="text" id="prStat1Val" placeholder="10+"/></div>
+            <div class="form-group"><label>Stat 1 Label</label><input type="text" id="prStat1Label" placeholder="Projects"/></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Stat 2 Value</label><input type="text" id="prStat2Val" placeholder="5+"/></div>
+            <div class="form-group"><label>Stat 2 Label</label><input type="text" id="prStat2Label" placeholder="Certificates"/></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Stat 3 Value</label><input type="text" id="prStat3Val" placeholder="2+"/></div>
+            <div class="form-group"><label>Stat 3 Label</label><input type="text" id="prStat3Label" placeholder="Years Learning"/></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== SETTINGS PANEL ===== -->
+    <div class="admin-panel" id="panel-settings">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:900px">
+        <div class="profile-card admin-form">
+          <h3>Change Password</h3>
+          <div class="form-group"><label>Current Password</label><input type="password" id="curPass"/></div>
+          <div class="form-group"><label>New Password</label><input type="password" id="newPass"/></div>
+          <div class="form-group"><label>Confirm Password</label><input type="password" id="confPass"/></div>
+          <button class="btn btn-primary btn-sm" onclick="changePassword()">Update Password</button>
+        </div>
+        <div class="profile-card">
+          <h3>Data Management</h3>
+          <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:20px;line-height:1.7">
+            Export your portfolio data as JSON backup, or import a previously exported file.
+          </p>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <button class="btn btn-outline btn-sm" onclick="exportData()">
+              <i class="fa-solid fa-download"></i> Export Data (JSON)
+            </button>
+            <button class="btn btn-outline btn-sm" onclick="importData()">
+              <i class="fa-solid fa-upload"></i> Import Data
+            </button>
+            <button class="btn btn-danger btn-sm" onclick="resetData()">
+              <i class="fa-solid fa-rotate-left"></i> Reset to Defaults
+            </button>
+          </div>
+        </div>
+        <div class="profile-card" style="grid-column:1/-1">
+          <h3>EmailJS Setup Guide</h3>
+          <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.8;margin-bottom:12px">
+            To make the contact form send real emails to your inbox, follow these steps:
+          </p>
+          <ol style="font-size:0.85rem;color:var(--text-muted);line-height:2;padding-left:20px">
+            <li>Sign up for free at <a href="https://emailjs.com" target="_blank" style="color:var(--accent)">emailjs.com</a></li>
+            <li>Connect your Gmail or Outlook under <strong style="color:var(--text)">Email Services</strong></li>
+            <li>Create an <strong style="color:var(--text)">Email Template</strong> using variables: <code style="background:var(--bg-alt);padding:2px 6px;border-radius:4px">{{from_name}}, {{from_email}}, {{subject}}, {{message}}</code></li>
+            <li>Copy your <strong style="color:var(--text)">Public Key</strong> from Account → API Keys</li>
+            <li>In <code style="background:var(--bg-alt);padding:2px 6px;border-radius:4px">js/script.js</code>, find the EmailJS section and replace the IDs + uncomment the send call</li>
+            <li>Add the EmailJS CDN script tag to <code style="background:var(--bg-alt);padding:2px 6px;border-radius:4px">index.html</code> before the closing <code>&lt;/body&gt;</code></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /admin-content -->
+</main>
+
+<!-- ===================== MODALS ===================== -->
+
+<!-- Project Modal -->
+<div class="modal-overlay" id="projectModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 class="modal-title" id="projectModalTitle">Add Project</h2>
+      <button class="modal-close" onclick="closeModal('projectModal')"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="modal-body admin-form">
+      <div class="form-row">
+        <div class="form-group"><label>Project Name *</label><input type="text" id="pmName" placeholder="Weather App"/></div>
+        <div class="form-group"><label>ID / Slug *</label><input type="text" id="pmId" placeholder="weather-app"/><p class="form-hint">Used in URL: project-detail.html?id=…</p></div>
+      </div>
+      <div class="form-group"><label>Short Description (card)</label><input type="text" id="pmShort" placeholder="One-line summary shown on card" maxlength="120"/></div>
+      <div class="form-group"><label>Full Description (detail page)</label><textarea id="pmFull" rows="4"></textarea></div>
+      <div class="form-group">
+        <label>Tech Stack (press Enter to add)</label>
+        <div class="tags-input-wrap" id="pmTechWrap" onclick="this.querySelector('.tags-input')?.focus()">
+          <input class="tags-input" id="pmTechInput" placeholder="HTML, CSS, JavaScript...">
+        </div>
+      </div>
+      <div class="form-group"><label>Features (one per line)</label><textarea id="pmFeatures" rows="4" placeholder="Search by city name&#10;Live temperature display&#10;5-day forecast"></textarea></div>
+      <div class="form-row">
+        <div class="form-group"><label>GitHub URL</label><input type="url" id="pmGithub"/></div>
+        <div class="form-group"><label>Live Demo URL</label><input type="url" id="pmLive"/></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Image Path / URL</label><input type="text" id="pmImage" placeholder="assets/projects/weather.png"/></div>
+        <div class="form-group"><label>Accent Color</label><input type="color" id="pmColor" value="#00D9C0"/></div>
+      </div>
+      <div class="toggle-row">
+        <div><div class="toggle-label">Featured Project</div><div class="toggle-desc">Shown in "Featured" filter</div></div>
+        <label class="toggle-switch"><input type="checkbox" id="pmFeatured"><span class="toggle-slider"></span></label>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline btn-sm" onclick="closeModal('projectModal')">Cancel</button>
+      <button class="btn btn-primary btn-sm" id="projectSaveBtn">Save Project</button>
+    </div>
+  </div>
+</div>
+
+<!-- Certificate Modal -->
+<div class="modal-overlay" id="certModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 class="modal-title" id="certModalTitle">Add Certificate</h2>
+      <button class="modal-close" onclick="closeModal('certModal')"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="modal-body admin-form">
+      <div class="form-group"><label>Title *</label><input type="text" id="cmTitle" placeholder="Responsive Web Design"/></div>
+      <div class="form-row">
+        <div class="form-group"><label>Issuer</label><input type="text" id="cmIssuer" placeholder="freeCodeCamp"/></div>
+        <div class="form-group"><label>Year</label><input type="text" id="cmDate" placeholder="2024"/></div>
+      </div>
+      <div class="form-group"><label>Image Path / URL</label><input type="text" id="cmImage" placeholder="assets/certificates/cert1.png"/></div>
+      <div class="form-row">
+        <div class="form-group"><label>Verify Link</label><input type="url" id="cmLink"/></div>
+        <div class="form-group"><label>Accent Color</label><input type="color" id="cmColor" value="#00D9C0"/></div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline btn-sm" onclick="closeModal('certModal')">Cancel</button>
+      <button class="btn btn-primary btn-sm" id="certSaveBtn">Save Certificate</button>
+    </div>
+  </div>
+</div>
+
+<!-- Timeline Modal -->
+<div class="modal-overlay" id="timelineModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 class="modal-title" id="timelineModalTitle">Add Timeline Item</h2>
+      <button class="modal-close" onclick="closeModal('timelineModal')"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="modal-body admin-form">
+      <div class="form-row">
+        <div class="form-group"><label>Year *</label><input type="text" id="tlYear" placeholder="2024"/></div>
+        <div class="form-group">
+          <label>Type</label>
+          <select id="tlType">
+            <option value="education">Education</option>
+            <option value="work">Work</option>
+            <option value="achievement">Achievement</option>
+            <option value="certificate">Certificate</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group"><label>Title *</label><input type="text" id="tlTitle" placeholder="Started MCA"/></div>
+      <div class="form-group"><label>Organization</label><input type="text" id="tlOrg" placeholder="University / Company"/></div>
+      <div class="form-group"><label>Description</label><textarea id="tlDesc" rows="3"></textarea></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline btn-sm" onclick="closeModal('timelineModal')">Cancel</button>
+      <button class="btn btn-primary btn-sm" id="timelineSaveBtn">Save Item</button>
+    </div>
+  </div>
+</div>
+
+<script src="../js/data.js"></script>
+<script src="../js/admin.js"></script>
+<script>
+  // Message search filter
+  window.filterMessages = function(q) {
+    const data = DataStore.get();
+    const rows = document.querySelectorAll('.msg-item');
+    const term = q.toLowerCase();
+    rows.forEach(row => {
+      const txt = row.textContent.toLowerCase();
+      row.style.display = txt.includes(term) ? '' : 'none';
+    });
+  };
+</script>
+</body>
+</html>

@@ -1,57 +1,114 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Project Detail | Niraj Kumar</title>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project | Niraj Kumar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    .detail-main{padding-top:88px;min-height:100vh}
+    .detail-loading{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;gap:16px;color:var(--text-muted);font-family:var(--font-mono);font-size:0.85rem}
+    .loading-spinner{width:36px;height:36px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin 0.7s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .detail-error{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;gap:16px;text-align:center;padding:40px}
+    .detail-error i{font-size:3rem;color:var(--accent-2)}
+    .detail-hero{background:var(--bg-alt);border-bottom:1px solid var(--border);padding:64px 0}
+    .detail-breadcrumb{font-family:var(--font-mono);font-size:0.75rem;color:var(--text-muted);margin-bottom:20px;display:flex;align-items:center;gap:8px}
+    .detail-breadcrumb a{color:var(--accent);transition:opacity .2s}
+    .detail-breadcrumb a:hover{opacity:.8}
+    .detail-title{font-size:clamp(2rem,5vw,3.5rem);font-weight:800;margin-bottom:14px}
+    .detail-short{font-size:1.05rem;color:var(--text-muted);max-width:650px;margin-bottom:28px;line-height:1.75}
+    .detail-links{display:flex;gap:14px;flex-wrap:wrap}
+    .detail-link{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:9px;font-family:var(--font-mono);font-size:0.8rem;border:1.5px solid var(--border);transition:all .25s}
+    .detail-link:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+    .detail-body{max-width:1200px;margin:0 auto;padding:64px 28px;display:grid;grid-template-columns:1fr 290px;gap:64px;align-items:start}
+    .detail-content h2{font-size:1.3rem;font-weight:700;margin:40px 0 14px;padding-top:24px;border-top:1px solid var(--border)}
+    .detail-content h2:first-child{margin-top:0;padding-top:0;border-top:none}
+    .detail-content p{color:var(--text-muted);line-height:1.8;margin-bottom:14px}
+    .features-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:14px}
+    .features-list li{display:flex;align-items:flex-start;gap:10px;color:var(--text-muted);font-size:0.95rem}
+    .features-list li::before{content:"→";color:var(--accent);flex-shrink:0;font-family:var(--font-mono)}
+    .detail-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-top:14px}
+    .detail-gallery img{width:100%;border-radius:9px;border:1px solid var(--border);transition:transform .3s,border-color .3s}
+    .detail-gallery img:hover{transform:scale(1.02);border-color:var(--accent)}
+    .detail-sidebar{position:sticky;top:96px}
+    .sidebar-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r);padding:22px}
+    .sidebar-card h3{font-family:var(--font-mono);font-size:0.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:14px}
+    .sidebar-tags{display:flex;flex-wrap:wrap;gap:7px}
+    @media(max-width:900px){.detail-body{grid-template-columns:1fr}.detail-sidebar{position:static}}
+  </style>
+</head>
+<body>
+<nav class="navbar scrolled" id="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">NK<span class="accent">.</span></a>
+    <div class="nav-actions">
+      <a href="index.html#projects" class="btn btn-outline btn-sm"><i class="fa-solid fa-arrow-left"></i> Back</a>
+      <button class="theme-toggle" id="themeToggle"><i class="fa-solid fa-moon" id="themeIcon"></i></button>
+    </div>
+  </div>
+</nav>
+<main class="detail-main" id="detailMain">
+  <div class="detail-loading" id="detailLoading">
+    <div class="loading-spinner"></div>
+    <p>Loading project…</p>
+  </div>
+</main>
+<footer class="footer"><div class="container"><p class="footer-copy">© 2024 Niraj Kumar</p></div></footer>
+<script src="js/data.js"></script>
+<script>
+  // Theme
+  const th = localStorage.getItem('nk_theme')||'dark';
+  document.documentElement.setAttribute('data-theme', th);
+  const ti = document.getElementById('themeIcon');
+  if(ti) ti.className = th==='dark'?'fa-solid fa-moon':'fa-solid fa-sun';
+  document.getElementById('themeToggle')?.addEventListener('click',()=>{
+    const cur = document.documentElement.getAttribute('data-theme');
+    const next = cur==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-theme',next);
+    localStorage.setItem('nk_theme',next);
+    if(ti) ti.className = next==='dark'?'fa-solid fa-moon':'fa-solid fa-sun';
+  });
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=Lato:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
+  // Render
+  (function(){
+    const id   = new URLSearchParams(location.search).get('id');
+    const proj = id && typeof DataStore!=='undefined' ? DataStore.get().projects.find(p=>p.id===id) : null;
 
-    <!-- Reuse main stylesheet for variables + base styles -->
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="project-detail.css" />
-  </head>
-  <body>
-    <!-- Minimal navbar -->
-    <nav class="navbar" id="navbar">
-      <div class="nav-container">
-        <a href="index.html" class="nav-logo">NK<span class="accent">.</span></a>
-        <div class="nav-actions">
-          <a href="index.html#projects" class="btn btn-outline btn-sm">
-            <i class="fa-solid fa-arrow-left"></i> Back to Projects
-          </a>
-          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-            <i class="fa-solid fa-moon" id="themeIcon"></i>
-          </button>
-        </div>
-      </div>
-    </nav>
-
-    <!-- Content injected by project-detail.js -->
-    <main class="detail-main" id="detailMain">
-      <!-- Loading state -->
-      <div class="detail-loading" id="detailLoading">
-        <div class="loading-spinner"></div>
-        <p>Loading project...</p>
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="container">
-        <p class="footer-copy">© 2024 Niraj Kumar. All rights reserved.</p>
-      </div>
-    </footer>
-
-    <script src="data.js"></script>
-    <script src="project-detail.js"></script>
-  </body>
+    setTimeout(()=>{
+      const main = document.getElementById('detailMain');
+      if(!proj){
+        main.innerHTML=`<div class="detail-error"><i class="fa-solid fa-triangle-exclamation"></i><h2>Project Not Found</h2><p>Check the URL or go back to Projects.</p><a href="index.html#projects" class="btn btn-primary" style="margin-top:20px"><i class="fa-solid fa-arrow-left"></i> Back to Projects</a></div>`;
+        return;
+      }
+      document.title = proj.name+' | Niraj Kumar';
+      const tags  = (proj.tech||[]).map(t=>`<span class="tag">${t}</span>`).join('');
+      const feats = (proj.features||[]).map(f=>`<li>${f}</li>`).join('');
+      const imgs  = (proj.images||proj.image?[proj.image]:[]).map(s=>`<img src="${s}" alt="${proj.name}" loading="lazy" onerror="this.style.opacity=.2">`).join('');
+      main.innerHTML=`
+        <div class="detail-hero"><div class="container">
+          <p class="detail-breadcrumb"><a href="index.html">Home</a> <i class="fa-solid fa-chevron-right" style="font-size:.65rem"></i> <a href="index.html#projects">Projects</a> <i class="fa-solid fa-chevron-right" style="font-size:.65rem"></i> <span>${proj.name}</span></p>
+          <h1 class="detail-title">${proj.name}</h1>
+          <p class="detail-short">${proj.shortDesc}</p>
+          <div class="detail-links">
+            <a href="${proj.github}" target="_blank" rel="noopener" class="detail-link"><i class="fa-brands fa-github"></i> GitHub</a>
+            <a href="${proj.live}"   target="_blank" rel="noopener" class="detail-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+          </div>
+        </div></div>
+        <div class="detail-body">
+          <div class="detail-content">
+            <h2>Overview</h2><p>${proj.fullDesc}</p>
+            ${feats?`<h2>Key Features</h2><ul class="features-list">${feats}</ul>`:''}
+            ${imgs?`<h2>Screenshots</h2><div class="detail-gallery">${imgs}</div>`:''}
+          </div>
+          <aside class="detail-sidebar"><div class="sidebar-card"><h3>Tech Stack</h3><div class="sidebar-tags">${tags}</div></div></aside>
+        </div>`;
+    }, 350);
+  })();
+</script>
+</body>
 </html>

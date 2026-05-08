@@ -1,128 +1,214 @@
-# Niraj Kumar — Portfolio Website
+# Niraj Kumar — Portfolio v2
 
-A modern, clean, fully responsive portfolio built from scratch with **HTML**, **CSS**, and **Vanilla JavaScript** — no frameworks.
+A modern, fully responsive portfolio website with a complete **Admin Dashboard** to manage all content without touching code.
 
 ---
 
-## 🗂️ File Structure
+## 🗂️ Project Structure
 
 ```
 portfolio/
-├── index.html            ← Main single-page site
-├── style.css             ← All styles (variables, sections, dark/light, responsive)
-├── script.js             ← DOM logic, animations, dynamic rendering
-├── data.js               ← ✏️ EDIT THIS to add projects & certificates
-├── project-detail.html   ← Individual project page (template)
-├── project-detail.css    ← Styles for detail page
-├── project-detail.js     ← Reads URL param, renders project from data.js
-├── README.md
-└── assets/
-    ├── resume.pdf        ← Add your resume here
-    ├── profile.jpg       ← Add your photo here
-    ├── projects/         ← project screenshots (weather.png, todo.png, ...)
-    └── certificates/     ← certificate images (cert1.png, cert2.png, ...)
+├── index.html                ← Main portfolio (single page)
+├── project-detail.html       ← Individual project view
+├── css/
+│   ├── style.css             ← All portfolio styles
+│   └── admin.css             ← Admin dashboard styles
+├── js/
+│   ├── data.js               ← Data store (localStorage powered)
+│   ├── script.js             ← Portfolio logic & animations
+│   └── admin.js              ← Full admin dashboard logic
+├── admin/
+│   └── index.html            ← Admin dashboard UI
+├── assets/
+│   ├── resume.pdf            ← ✏️ Replace with your resume
+│   ├── profile.jpg           ← ✏️ Replace with your photo
+│   ├── projects/             ← Project screenshots
+│   └── certificates/         ← Certificate images
+└── README.md
 ```
 
 ---
 
 ## 🚀 Quick Start
 
-1. Download / clone this folder
-2. Open `index.html` in your browser (or use **Live Server** in VS Code)
+### Option A — VS Code Live Server (Recommended)
+1. Install the **Live Server** extension in VS Code
+2. Right-click `index.html` → **Open with Live Server**
 3. That's it — no build step, no npm install
+
+### Option B — Python (any machine)
+```bash
+cd portfolio/
+python -m http.server 3000
+# Open http://localhost:3000
+```
 
 ---
 
-## ✏️ How to Customize
+## 🔐 Admin Dashboard
 
-### Add a New Project
-Open `data.js` and add an object to the `projects` array:
+**URL:** `http://localhost:3000/admin/index.html`  
+**Default Password:** `admin123`
 
+### Admin Features
+| Feature | Description |
+|---------|-------------|
+| 📊 Dashboard | Stats overview, recent messages, quick actions |
+| 📥 Messages | View, read, reply, delete contact form submissions |
+| 💼 Projects | Add/Edit/Delete projects with tech tags, links, images |
+| 🏆 Certificates | Manage certificates with images and verify links |
+| 🧰 Skills | Add/remove skill tags, create/delete categories |
+| 🗓️ Timeline | Manage career/education journey items |
+| 👤 Profile | Edit name, bio, links, stats, availability badge |
+| ⚙️ Settings | Change password, export/import data, reset to defaults |
+
+### Change Admin Password
+1. Login → **Settings** tab
+2. Fill in current password (`admin123`) and new password
+3. Click **Update Password**
+
+---
+
+## ✉️ Enable Real Email (EmailJS)
+
+The contact form stores messages in the Admin Dashboard inbox by default. To also receive email notifications:
+
+**Step 1** — Add EmailJS CDN to `index.html` (before `</body>`):
+```html
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+```
+
+**Step 2** — Sign up at [emailjs.com](https://emailjs.com) (free tier = 200 emails/month)
+
+**Step 3** — Create an Email Service (Gmail, Outlook, etc.)
+
+**Step 4** — Create an Email Template with these variables:
+```
+From: {{from_name}} <{{from_email}}>
+Subject: Portfolio Contact: {{subject}}
+Body: {{message}}
+```
+
+**Step 5** — In `js/script.js`, find the `initContactForm` function and:
+```javascript
+// 1. Initialize (add before the function):
+emailjs.init("YOUR_PUBLIC_KEY");
+
+// 2. Uncomment the emailjs.send() block inside handleFormSubmit
+// 3. Replace YOUR_SERVICE_ID and YOUR_TEMPLATE_ID
+// 4. Remove the demo setTimeout simulation below it
+```
+
+---
+
+## 🎨 Customize Colors
+
+Edit CSS variables at the top of `css/style.css`:
+```css
+:root {
+  --accent: #00b896;       /* Light mode accent */
+}
+[data-theme="dark"] {
+  --accent: #00D9AF;       /* Dark mode accent */
+}
+```
+
+---
+
+## ✏️ Update Your Info (Without Admin)
+
+Edit `js/data.js` directly:
+
+### Add a Project
 ```js
 {
-  id: "my-new-project",       // unique slug for URL
-  name: "My New Project",
-  shortDesc: "One line summary shown on card",
-  fullDesc: "Full paragraph shown on detail page",
-  features: ["Feature 1", "Feature 2"],
-  tech: ["HTML", "CSS", "JavaScript"],
-  github: "https://github.com/...",
-  live: "https://...",
-  image: "assets/projects/my-project.png",
-  images: ["assets/projects/my-project.png"],
-  color: "#00D9C0",   // accent color for fallback thumbnail
+  id: "my-project",           // unique slug for URL
+  name: "My Project",
+  shortDesc: "Card description (1 line)",
+  fullDesc:  "Full detail page description",
+  features:  ["Feature 1", "Feature 2"],
+  tech:      ["HTML", "CSS", "JavaScript"],
+  github:    "https://github.com/...",
+  live:      "https://...",
+  image:     "assets/projects/my-project.png",
+  color:     "#00D9C0",
+  featured:  true
 }
 ```
 
 ### Add a Certificate
 ```js
 {
-  title: "Certificate Name",
-  issuer: "Platform Name",
-  date: "2024",
-  image: "assets/certificates/certN.png",
-  link: "https://verify-link...",
+  id: "cert4",
+  title:  "Certificate Name",
+  issuer: "Platform",
+  date:   "2024",
+  image:  "assets/certificates/cert4.png",
+  link:   "https://verify-link...",
+  color:  "#A78BFA"
 }
 ```
-
-### Add / Remove Skills
-Edit the `skills` object in `data.js`.
-
----
-
-## 📧 Enable EmailJS (Contact Form)
-
-1. Create a free account at [emailjs.com](https://www.emailjs.com)
-2. Add a Gmail/Outlook service
-3. Create a template with variables: `{{from_name}}`, `{{from_email}}`, `{{message}}`
-4. Add this script to `index.html` (before closing `</body>`):
-   ```html
-   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-   ```
-5. In `script.js`, uncomment:
-   - `emailjs.init("YOUR_PUBLIC_KEY")`
-   - The `emailjs.send(...)` block
-   - Replace IDs with your actual Service ID, Template ID, and Public Key
-6. Remove the demo `setTimeout` simulation
 
 ---
 
 ## 🌐 Deploy
 
-### GitHub Pages
-1. Push to a GitHub repo named `yourusername.github.io`
-2. Go to **Settings → Pages → Source: main / root**
-3. Your site is live at `https://yourusername.github.io`
+### GitHub Pages (Free)
+1. Push folder to GitHub repo named `yourusername.github.io`
+2. Settings → Pages → Source: **main / root**
+3. Live at `https://yourusername.github.io` in ~60 seconds
 
-### Netlify (recommended — faster)
-1. Drag & drop the `portfolio/` folder at [netlify.com/drop](https://netlify.com/drop)
-2. Done!
+### Netlify (Fastest — Recommended)
+1. Drag & drop the `portfolio/` folder to [netlify.com/drop](https://netlify.com/drop)
+2. Get a live URL instantly, set custom domain later
 
----
-
-## 🎨 Change Colors
-
-Open `style.css` and edit the CSS variables at the top:
-
-```css
-:root {
-  --accent: #00b89e;          /* light mode accent */
-}
-[data-theme="dark"] {
-  --accent: #00D9C0;          /* dark mode accent */
-}
+### Vercel
+```bash
+npm i -g vercel
+cd portfolio/
+vercel
 ```
 
 ---
 
-## 📝 Update Your Info
+## 🔍 Update GitHub Username (Stats Section)
 
-Search for these placeholders and replace them:
-- `niraj@email.com` → your email
-- `nirajkumar` (in GitHub links) → your GitHub username
-- `linkedin.com/in/nirajkumar` → your LinkedIn URL
-- GitHub stats cards in `index.html` → replace `nirajkumar` with your username
+In `index.html`, find the 3 `<img>` tags with class `github-stat-img` and replace `nirajkumar` with your actual GitHub username. Or update it through **Admin → Profile → GitHub URL** — the username is auto-parsed.
 
 ---
 
-Built by **Niraj Kumar** 🚀
+## ✅ Checklist Before Going Live
+
+- [ ] Replace `assets/profile.jpg` with your photo
+- [ ] Replace `assets/resume.pdf` with your resume
+- [ ] Update name/email/links in Admin → Profile
+- [ ] Add your real projects in Admin → Projects
+- [ ] Add your certificates in Admin → Certificates
+- [ ] Update GitHub username in GitHub stats section
+- [ ] Set up EmailJS for contact form emails
+- [ ] Change admin password from `admin123`
+- [ ] Deploy to GitHub Pages or Netlify
+
+---
+
+## 🧩 Features
+
+| Feature | Details |
+|---------|---------|
+| 🌓 Dark/Light Mode | Saved to localStorage, no flash on reload |
+| 🖱️ Custom Cursor | Smooth animated cursor with hover expansion |
+| ✨ Particles Hero | Interactive canvas particles with mouse repel |
+| ⌨️ Typing Animation | Cycles through roles with smooth type/delete |
+| 🔍 Project Filter | Filter by All / Featured / Tech stack |
+| 📜 Scroll Reveal | Elements animate in as you scroll |
+| 📊 Progress Bar | Reading progress bar at top of page |
+| 🗓️ Timeline | Visual career/education journey |
+| 📬 Contact Form | Spam protection (honeypot + rate limiting + validation) |
+| 🔔 Toast Notifications | Non-intrusive success/error feedback |
+| 🔝 Back to Top | Smooth scroll, auto-shows after 400px |
+| 📱 Responsive | Mobile-first, works on all screen sizes |
+| ♿ Accessible | ARIA labels, semantic HTML, keyboard nav |
+
+---
+
+Built with ❤️ by **Niraj Kumar**
