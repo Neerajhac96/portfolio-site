@@ -292,7 +292,7 @@ function renderPortfolio() {
       const sec = document.createElement('div');
       sec.className = 'skill-category reveal';
       sec.innerHTML = `<h3 class="skill-cat-title">${cat}</h3>
-        <div class="skill-tags stagger">${items.map(s => `<span class="skill-tag">${s}</span>`).join('')}</div>`;
+        <div class="skill-tags stagger reveal">${items.map(s => `<span class="skill-tag">${s}</span>`).join('')}</div>`;
       sw.appendChild(sec);
     });
   }
