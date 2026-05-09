@@ -124,7 +124,7 @@ function initSidebar() {
    ============================================================ */
 let activePanel = 'dashboard';
 
-function switchPanel(id) {
+window.switchPanel = function(id) {
   $$('.admin-panel').forEach(p => p.classList.remove('active'));
   $$('.sidebar-link').forEach(l => l.classList.remove('active'));
   const panel = $(`#panel-${id}`);

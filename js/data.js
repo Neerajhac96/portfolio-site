@@ -6,16 +6,16 @@
 const DEFAULT_DATA = {
   profile: {
     name: "Niraj Kumar",
-    title: "Frontend Developer",
-    subtitle: "MCA Student & Aspiring Frontend Developer",
+    title: "Web Developer",
+    subtitle: "MCA Student & Aspiring Web Developer",
     tagline: "I craft responsive, pixel-perfect web experiences that users love.",
     email: "niraj@email.com",
-    github: "https://github.com/nirajkumar",
-    linkedin: "https://linkedin.com/in/nirajkumar",
+    github: "https://github.com/Neerajhac96",
+    linkedin: "https://www.linkedin.com/in/niraj649/",
     location: "India",
     available: true,
     bio: [
-      "I'm Niraj Kumar, a passionate MCA student and aspiring Frontend Developer with a strong foundation in HTML, CSS, and JavaScript.",
+      "I'm Niraj Kumar, a passionate MCA student and aspiring Web Developer with a strong foundation in HTML, CSS, and JavaScript.",
       "I love transforming design concepts into clean, interactive user interfaces. My focus is writing maintainable code that works beautifully across all devices and browsers.",
       "When I'm not coding, I'm exploring new web technologies, contributing to open-source projects, or sharpening my problem-solving skills.",
       "I'm actively seeking frontend internship and entry-level opportunities where I can contribute, learn, and grow as a developer."
