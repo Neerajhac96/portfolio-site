@@ -289,7 +289,7 @@
         <div class="profile-card admin-form">
           <h3>Stats (3 counters)</h3>
           <div class="form-row">
-            <div class="form-group"><label>Stat 1 Value</label><input type="text" id="prStat1Val" placeholder="10+"/></div>
+            <div class="form-group"><label>Stat 1 Value</label><input type="text" id="prStat1Val" placeholder="5+"/></div>
             <div class="form-group"><label>Stat 1 Label</label><input type="text" id="prStat1Label" placeholder="Projects"/></div>
           </div>
           <div class="form-row">
@@ -297,7 +297,7 @@
             <div class="form-group"><label>Stat 2 Label</label><input type="text" id="prStat2Label" placeholder="Certificates"/></div>
           </div>
           <div class="form-row">
-            <div class="form-group"><label>Stat 3 Value</label><input type="text" id="prStat3Val" placeholder="2+"/></div>
+            <div class="form-group"><label>Stat 3 Value</label><input type="text" id="prStat3Val" placeholder="4+"/></div>
             <div class="form-group"><label>Stat 3 Label</label><input type="text" id="prStat3Label" placeholder="Years Learning"/></div>
           </div>
         </div>
@@ -330,20 +330,6 @@
               <i class="fa-solid fa-rotate-left"></i> Reset to Defaults
             </button>
           </div>
-        </div>
-        <div class="profile-card" style="grid-column:1/-1">
-          <h3>EmailJS Setup Guide</h3>
-          <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.8;margin-bottom:12px">
-            To make the contact form send real emails to your inbox, follow these steps:
-          </p>
-          <ol style="font-size:0.85rem;color:var(--text-muted);line-height:2;padding-left:20px">
-            <li>Sign up for free at <a href="https://emailjs.com" target="_blank" style="color:var(--accent)">emailjs.com</a></li>
-            <li>Connect your Gmail or Outlook under <strong style="color:var(--text)">Email Services</strong></li>
-            <li>Create an <strong style="color:var(--text)">Email Template</strong> using variables: <code style="background:var(--bg-alt);padding:2px 6px;border-radius:4px">{{from_name}}, {{from_email}}, {{subject}}, {{message}}</code></li>
-            <li>Copy your <strong style="color:var(--text)">Public Key</strong> from Account → API Keys</li>
-            <li>In <code style="background:var(--bg-alt);padding:2px 6px;border-radius:4px">js/script.js</code>, find the EmailJS section and replace the IDs + uncomment the send call</li>
-            <li>Add the EmailJS CDN script tag to <code style="background:var(--bg-alt);padding:2px 6px;border-radius:4px">index.html</code> before the closing <code>&lt;/body&gt;</code></li>
-          </ol>
         </div>
       </div>
     </div>
