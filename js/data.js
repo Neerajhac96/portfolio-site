@@ -6,19 +6,19 @@
 const DEFAULT_DATA = {
   profile: {
     name: "Niraj Kumar",
-    title: "Web Developer",
+    title: "Full-Stack Developer & Software Developer",
     subtitle: "MCA Student & Aspiring Web Developer",
     tagline: "I craft responsive, pixel-perfect web experiences that users love.",
-    email: "niraj@email.com",
+    email: "niraj.kumar.in07@gmail.com",
     github: "https://github.com/Neerajhac96",
     linkedin: "https://www.linkedin.com/in/niraj649/",
     location: "India",
     available: true,
     bio: [
-      "I'm Niraj Kumar, a passionate MCA student and aspiring Web Developer with a strong foundation in HTML, CSS, and JavaScript.",
+      "I'm Niraj Kumar, a passionate MCA student and aspiring full-Stack Developer with a strong foundation in HTML, CSS, and JavaScript.",
       "I love transforming design concepts into clean, interactive user interfaces. My focus is writing maintainable code that works beautifully across all devices and browsers.",
       "When I'm not coding, I'm exploring new web technologies, contributing to open-source projects, or sharpening my problem-solving skills.",
-      "I'm actively seeking frontend internship and entry-level opportunities where I can contribute, learn, and grow as a developer."
+      "I'm actively seeking Full-Stack internship and entry-level opportunities where I can contribute, learn, and grow as a developer."
     ],
     stats: [
       { label: "Projects", value: "10+" },
@@ -29,28 +29,15 @@ const DEFAULT_DATA = {
 
   projects: [
     {
-      id: "weather-app",
-      name: "Weather App",
-      shortDesc: "Real-time weather with 5-day forecast using OpenWeatherMap API.",
-      fullDesc: "A fully responsive weather application that fetches real-time data from the OpenWeatherMap API. Users can search any city worldwide and instantly see temperature, humidity, wind speed, and a 5-day forecast. Built with vanilla JavaScript and modern CSS.",
-      features: ["Search by city name", "Live temperature, humidity & wind", "5-day forecast with icons", "Responsive mobile layout", "Error handling for invalid cities"],
-      tech: ["HTML5", "CSS3", "JavaScript", "OpenWeatherMap API"],
-      github: "https://github.com/nirajkumar/weather-app",
-      live: "https://nirajkumar.github.io/weather-app",
-      image: "assets/projects/weather.png",
-      color: "#00D9C0",
-      featured: true
-    },
-    {
-      id: "todo-app",
-      name: "Task Manager",
-      shortDesc: "Clean drag-and-drop task manager with localStorage persistence.",
-      fullDesc: "A feature-rich task management application with drag-and-drop reordering, priority labels, and deadline tracking. All tasks are saved to localStorage so data persists across sessions.",
-      features: ["Add, edit & delete tasks", "Drag-and-drop reordering", "Priority labels (High/Medium/Low)", "Deadline picker with overdue alerts", "localStorage persistence"],
-      tech: ["HTML5", "CSS3", "JavaScript", "localStorage API"],
-      github: "https://github.com/nirajkumar/todo-app",
-      live: "https://nirajkumar.github.io/todo-app",
-      image: "assets/projects/todo.png",
+      id: "college-ai-assistant",
+      name: "AI College Assistant (ChatVEDA)",
+      shortDesc: "AI-powered multi-college chatbot platform for notices, PDFs, syllabus, and student queries.",
+      fullDesc: "ChatDEVA is a SaaS-based AI chatbot platform designed for colleges and educational institutions. The system allows colleges to upload notices, PDFs, syllabus documents, exam schedules, and academic files, while students can ask questions in natural language through a ChatGPT-style interface. The platform uses Retrieval-Augmented Generation (RAG), vector search, and LLM APIs to provide accurate answers from uploaded college documents. It supports multi-college architecture with secure data isolation, JWT authentication, role-based access control, analytics dashboards, invite-based onboarding, and usage tracking.",
+      features: ["AI chatbot for college queries","RAG-based document answering","PDF and notice upload system","ChatGPT-style chat interface","Multi-college SaaS architecture","Secure JWT authentication","Role-based access control","Invite-based college onboarding","Student and admin dashboards","Usage tracking and analytics","Vector search with ChromaDB","Groq LLM integration","Responsive React frontend","Secure college data isolation"],
+      tech: ["FastAPI","React.js","Vite","Tailwind CSS","Python","PostgreSQL","SQLAlchemy","ChromaDB","Groq API","JWT Authentication","Axios","Docker","Railway"],
+      github: "https://github.com/Neerajhac96/chatdeva",
+      live: "",
+      image: "assets/projects/ai.png",
       color: "#FF6B6B",
       featured: true
     },
@@ -68,23 +55,28 @@ const DEFAULT_DATA = {
       featured: true
     },
     {
-      id: "quiz-app",
-      name: "Quiz App",
-      shortDesc: "Interactive quiz with timer, score tracking & multiple categories.",
-      fullDesc: "A dynamic quiz application that pulls questions from the Open Trivia Database API. Users choose a category and difficulty, then race against a countdown timer. Score is tracked throughout and a detailed results screen shows correct answers.",
-      features: ["Category & difficulty selection", "Countdown timer per question", "Live score tracking", "Results with correct answers", "Responsive accessible UI"],
-      tech: ["HTML5", "CSS3", "JavaScript", "Open Trivia DB API"],
-      github: "https://github.com/nirajkumar/quiz-app",
-      live: "https://nirajkumar.github.io/quiz-app",
-      image: "assets/projects/quiz.png",
-      color: "#FBBF24",
-      featured: false
+      id: "weather-app",
+      name: "Weather App",
+      shortDesc: "Real-time weather with 5-day forecast using OpenWeatherMap API.",
+      fullDesc: "A fully responsive weather application that fetches real-time data from the OpenWeatherMap API. Users can search any city worldwide and instantly see temperature, humidity, wind speed, and a 5-day forecast. Built with vanilla JavaScript and modern CSS.",
+      features: ["Search by city name", "Live temperature, humidity & wind", "5-day forecast with icons", "Responsive mobile layout", "Error handling for invalid cities"],
+      tech: ["HTML5", "CSS3", "JavaScript", "OpenWeatherMap API"],
+      github: "https://github.com/nirajkumar/weather-app",
+      live: "https://nirajkumar.github.io/weather-app",
+      image: "assets/projects/weather.png",
+      color: "#00D9C0",
+      featured: true
     }
   ],
 
   skills: {
     Frontend: ["HTML5", "CSS3", "JavaScript (ES6+)", "Responsive Design", "Flexbox & Grid", "DOM Manipulation", "REST APIs", "React (Learning)"],
-    Tools: ["Git & GitHub", "VS Code", "Figma", "Chrome DevTools", "npm", "Postman", "Netlify", "Vercel"]
+    Backend: ["FastAPI", "Node.js", "Express.js", "JWT Authentication", "REST API Development", "Middleware", "MongoDB"],
+    Languages: ["Java", "JavaScript", "Python", "SQL"],
+    "AI/GenAI": ["Prompt Engineering", "OpenAI API", "RAG Basics", "LLM Concepts", "Vector Databases", "AI Chatbot Development"],
+    Tools: ["Git & GitHub", "VS Code", "Chrome DevTools", "npm", "Postman", "Netlify", "Vercel"],
+    "Core CS": ["Data Structures", "OOPs", "DBMS", "OS", "CN"],
+    "Currently Learning": ["FastAPI", "LangChain", "Docker", "React", "System Design Basics"]
   },
 
   certificates: [
@@ -94,11 +86,68 @@ const DEFAULT_DATA = {
   ],
 
   timeline: [
-    { year: "2022", title: "Started MCA", org: "University", desc: "Began Master of Computer Applications, deepening CS fundamentals.", type: "education", icon: "fa-graduation-cap" },
-    { year: "2023", title: "First Open Source Contribution", org: "GitHub", desc: "Contributed to open source projects and built first portfolio.", type: "achievement", icon: "fa-code-branch" },
-    { year: "2023", title: "freeCodeCamp Certifications", org: "freeCodeCamp", desc: "Earned Responsive Web Design & JavaScript certifications.", type: "certificate", icon: "fa-certificate" },
-    { year: "2024", title: "Frontend Internship", org: "Tech Startup", desc: "Worked on production React applications and UI component libraries.", type: "work", icon: "fa-briefcase" },
-    { year: "2024", title: "Portfolio v2 Launch", org: "Personal", desc: "Built this full-stack-style portfolio with Admin Dashboard.", type: "achievement", icon: "fa-rocket" }
+    {
+    year: "2021",
+    title: "Started BCA",
+    org: "Langat Singh College, BRABU",
+    desc: "Started Bachelor of Computer Applications and built a strong foundation in programming, computer science fundamentals, and web technologies.",
+    type: "education",
+    icon: "fa-graduation-cap"
+  },
+
+  {
+    year: "2023",
+    title: "Started Web Development Journey",
+    org: "Self Learning",
+    desc: "Began learning frontend web development with HTML, CSS, JavaScript, responsive design, and modern UI development practices.",
+    type: "achievement",
+    icon: "fa-code"
+  },
+
+  {
+    year: "2023",
+    title: "Earned Web Development Certifications",
+    org: "Apna Collge",
+    desc: "Completed certifications in Responsive Web Design, JavaScript, and Frontend Development while building hands-on projects.",
+    type: "certificate",
+    icon: "fa-certificate"
+  },
+
+  {
+    year: "2024",
+    title: "Completed BCA",
+    org: "Langat Singh College, BRABU",
+    desc: "Successfully completed Bachelor of Computer Applications with practical knowledge of software development and problem solving.",
+    type: "education",
+    icon: "fa-user-graduate"
+  },
+
+  {
+    year: "2024",
+    title: "Started MCA",
+    org: "ABES Engineering College",
+    desc: "Started Master of Computer Applications to deepen knowledge in software engineering, full-stack development, and AI technologies.",
+    type: "education",
+    icon: "fa-book-open"
+  },
+
+  {
+    year: "2025",
+    title: "Built AI Chatbot Project (ChatVEDA)",
+    org: "Personal Project",
+    desc: "Developed ChatVEDA, an AI-powered college assistant platform using FastAPI, React, RAG, vector databases, and LLM APIs.",
+    type: "achievement",
+    icon: "fa-robot"
+  },
+
+  {
+  year: "2026",
+  title: "Scaling ChatVEDA Platform",
+  org: "AI SaaS Project",
+  desc: "Improving ChatVEDA into a scalable multi-college AI assistant platform with RAG architecture, secure authentication, analytics, and cloud deployment.",
+  type: "achievement",
+  icon: "fa-robot"
+}
   ],
 
   messages: []

@@ -245,9 +245,10 @@ $$('.mobile-link').forEach(l => l.addEventListener('click', closeMob));
 
   const data = typeof DataStore !== 'undefined' ? DataStore.get() : null;
   const roles = data?.profile?.typingRoles || [
-    'Frontend Developer',
-    'UI Enthusiast',
-    'Web Designer',
+    'Full-Stack Developer',
+    'Software Developer',
+    'AI Developer',
+    'GenAI Enthusiast',
     'MCA Student',
     'Problem Solver'
   ];
