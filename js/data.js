@@ -80,9 +80,9 @@ const DEFAULT_DATA = {
   },
 
   certificates: [
-    { id: "cert1", title: "Responsive Web Design", issuer: "freeCodeCamp", date: "2023", image: "assets/certificates/cert1.png", link: "https://freecodecamp.org", color: "#00D9C0" },
-    { id: "cert2", title: "JavaScript Algorithms & Data Structures", issuer: "freeCodeCamp", date: "2023", image: "assets/certificates/cert2.png", link: "https://freecodecamp.org", color: "#FF6B6B" },
-    { id: "cert3", title: "Front-End Web Development", issuer: "Coursera", date: "2024", image: "assets/certificates/cert3.png", link: "https://coursera.org", color: "#A78BFA" }
+    { id: "cert1", title: "Problem Solving", issuer: "hackerrank", date: "2025", image: "assets/certificates/cert1.png", link: "https://www.hackerrank.com/", color: "#00D9C0" },
+    { id: "cert2", title: "🤗 AI Agents Course", issuer: "huggingface", date: "2026", image: "assets/certificates/agent.webp", link: "https://huggingface.co/learn/agents-course/en/unit0/introduction", color: "#FF6B6B" },
+    //{ id: "cert3", title: "Front-End Web Development", issuer: "Coursera", date: "2024", image: "assets/certificates/cert3.png", link: "https://coursera.org", color: "#A78BFA" }
   ],
 
   timeline: [
